@@ -9,14 +9,14 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethod1()
         {
-
+            Console.WriteLine();
         }
 
 
 
 
         [ClassInitialize]
-        public void ClassInitialize(TestContext testContext)
+        public static void ClassInitialize(TestContext testContext)
         {
             SetUp(testContext);
         }
@@ -24,7 +24,7 @@ namespace UnitTestProject1
 
 
         [ClassCleanup]
-        public void ClassCleanup()
+        public static void ClassCleanup()
         {
             TearDown();
         }
@@ -32,7 +32,8 @@ namespace UnitTestProject1
         [TestInitialize]
         public void TestInitialize()
         {
-
+            driver.Navigate().GoToUrl(url_to_navigate);
+            driver.Manage().Window.Maximize();
         }
 
         [TestCleanup]
