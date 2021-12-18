@@ -9,6 +9,38 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethod1()
         {
+
         }
+
+
+
+
+        [ClassInitialize]
+        public void ClassInitialize()
+        {
+            
+        }
+
+
+
+        [ClassCleanup]
+        public void ClassCleanup()
+        {
+
+        }
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+
+        }
+
+        [TestCleanup]
+        public void TestCleanup()
+        {
+
+        }
+
+
     }
 }
