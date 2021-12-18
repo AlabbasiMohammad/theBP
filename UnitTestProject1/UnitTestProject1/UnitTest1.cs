@@ -4,7 +4,7 @@ using System;
 namespace UnitTestProject1
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTest1 : TestingSession
     {
         [TestMethod]
         public void TestMethod1()
@@ -16,9 +16,9 @@ namespace UnitTestProject1
 
 
         [ClassInitialize]
-        public void ClassInitialize()
+        public void ClassInitialize(TestContext testContext)
         {
-            
+            SetUp(testContext);
         }
 
 
@@ -26,7 +26,7 @@ namespace UnitTestProject1
         [ClassCleanup]
         public void ClassCleanup()
         {
-
+            TearDown();
         }
 
         [TestInitialize]
