@@ -1,5 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Threading;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace UnitTestProject1
 {
@@ -9,7 +12,17 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethod1()
         {
-            Console.WriteLine();
+            wait.Until(e => e.FindElement(By.Name("q")).Displayed);
+            element = wait.Until(e => e.FindElement(By.Name("q")));
+            Assert.IsNotNull(element);
+            element.SendKeys("mechanical engineering" + Keys.Enter);
+
+            wait.Until(e => e.FindElement(By.Id("abar_button_opt")).Displayed);
+            element = wait.Until(e => e.FindElement(By.Id("abar_button_opt")));
+            element.Click();
+
+
+
         }
 
 
@@ -26,7 +39,7 @@ namespace UnitTestProject1
         [ClassCleanup]
         public static void ClassCleanup()
         {
-            TearDown();
+            //TearDown();
         }
 
         [TestInitialize]
@@ -34,6 +47,10 @@ namespace UnitTestProject1
         {
             driver.Navigate().GoToUrl(url_to_navigate);
             driver.Manage().Window.Maximize();
+
+            wait.Until(e => e.FindElement(By.CssSelector("#L2AGLb")).Displayed);
+            element = wait.Until(e => e.FindElement(By.CssSelector("#L2AGLb")));
+            element.Click();
         }
 
         [TestCleanup]

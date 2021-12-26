@@ -14,14 +14,16 @@ namespace UnitTestProject1
 
         protected static IWebDriver driver;
         protected static IWebElement element;
-        
+        protected static WebDriverWait wait;
+
         protected const string url_to_navigate = @"https://www.google.com";
 
         public static void SetUp(TestContext testContext)
         {
 
             driver = new ChromeDriver();
-            
+            wait = new WebDriverWait(driver, timeout: TimeSpan.FromSeconds(25));
+
         }
 
 
